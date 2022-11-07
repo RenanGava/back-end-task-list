@@ -8,7 +8,6 @@ class ListTaskController {
         const user_id = req.query.user_id as string
 
         const listTaskService = new ListTaskService()
-        console.log(user_id);
         
 
         const tasks = await listTaskService.execute({ user_id })
