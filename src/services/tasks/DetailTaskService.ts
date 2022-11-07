@@ -7,7 +7,7 @@ interface RequestDetailService {
 class DetailTaskService {
 
     async execute({ task_id }: RequestDetailService) {
-        const detailTask = await prismaClient.task.findUnique({
+        const detailTask = await prismaClient.task.findFirst({
             where: {
                 id: task_id
             }

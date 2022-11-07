@@ -8,7 +8,7 @@ class DetailTaskController {
 
         const detailTaskService = new DetailTaskService()
 
-        const detailTask = detailTaskService.execute({ task_id })
+        const detailTask = await detailTaskService.execute({ task_id })
 
         return res.json(detailTask)
     }

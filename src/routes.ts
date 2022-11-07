@@ -20,6 +20,7 @@ router.get('/user/me', isAuhtenticated, new DetailUserController().handle)
 router.post('/create/task', upload.single('file'), isAuhtenticated, new CreateTaskController().handle)
 router.get('/list/tasks', isAuhtenticated, new ListTaskController().handle)
 router.get('/task/detail', isAuhtenticated, new DetailTaskController().handle)
+router.delete('/delete/task', isAuhtenticated)
 
 
 export { router }
