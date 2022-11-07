@@ -1,5 +1,6 @@
 import { Router, Response, Request } from "express"
 import { CreateTaskController } from "./controllers/tasks/CreateTaskController"
+import { DetailTaskController } from "./controllers/tasks/DetailTaskController"
 import { ListTaskController } from "./controllers/tasks/ListTaskController"
 import { AuthUserController } from "./controllers/user/AuthUserController"
 import { CreateUserController } from "./controllers/user/CreateUserController"
@@ -18,6 +19,7 @@ router.get('/user/me', isAuhtenticated, new DetailUserController().handle)
 // === ROTAS TASKS AUTENTICADAS ===
 router.post('/create/task', upload.single('file'), isAuhtenticated, new CreateTaskController().handle)
 router.get('/list/tasks', isAuhtenticated, new ListTaskController().handle)
+router.get('/task/detail', isAuhtenticated, new DetailTaskController().handle)
 
 
 export { router }
