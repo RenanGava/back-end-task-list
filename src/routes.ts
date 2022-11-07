@@ -1,5 +1,6 @@
 import { Router, Response, Request } from "express"
 import { CreateTaskController } from "./controllers/tasks/CreateTaskController"
+import { DeleteTaskController } from "./controllers/tasks/DeleteTaskController"
 import { DetailTaskController } from "./controllers/tasks/DetailTaskController"
 import { ListTaskController } from "./controllers/tasks/ListTaskController"
 import { AuthUserController } from "./controllers/user/AuthUserController"
@@ -20,7 +21,7 @@ router.get('/user/me', isAuhtenticated, new DetailUserController().handle)
 router.post('/create/task', upload.single('file'), isAuhtenticated, new CreateTaskController().handle)
 router.get('/list/tasks', isAuhtenticated, new ListTaskController().handle)
 router.get('/task/detail', isAuhtenticated, new DetailTaskController().handle)
-router.delete('/delete/task', isAuhtenticated)
+router.delete('/delete/task', isAuhtenticated, new DeleteTaskController().handle)
 
 
 export { router }
