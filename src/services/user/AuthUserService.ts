@@ -22,7 +22,7 @@ class AuthUserService{
 
         const passwordMatch = await compare(password, user.password)
 
-        if(!password){
+        if(!passwordMatch){
             throw new Error('Password Incorrect!!')
         }
 
@@ -33,7 +33,7 @@ class AuthUserService{
             },
             process.env.JWT_HASH_TOKEN,
             {
-                expiresIn: 30,
+                expiresIn: '30d',
                 subject: user.id
             }
         )

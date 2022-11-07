@@ -28,14 +28,15 @@ model Task {
   id          String    @id @default(uuid())
   title       String
   description String
-  status      String
-  banner      String
+  status      Boolean
+  banner      String?
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())
 
   user User @relation(fields: [user_id], references: [id])
 
-  user_id String
 
   @@map("tasks")
+  
+  user_id String
 }

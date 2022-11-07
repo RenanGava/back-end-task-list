@@ -11,7 +11,7 @@ export function isAuhtenticated(req: Request, res: Response, next: NextFunction)
     const authToken = req.headers.authorization
 
     if(!authToken){
-        return res.status(401).send()
+        return res.status(401).json({message: 'Not alredy exist token'})
     }
 
     const [, token] = authToken.split(" ")
@@ -25,6 +25,6 @@ export function isAuhtenticated(req: Request, res: Response, next: NextFunction)
         return next()
 
     }catch(err){
-        return res.status(401).end()
+        return res.status(401).json({message:"token expire"})
     }
 }
